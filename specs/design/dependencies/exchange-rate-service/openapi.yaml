@@ -53,8 +53,16 @@ paths:
                       amount: { type: number }
                   info:
                     type: object
+                    description: >
+                      Field name observed to depend on API plan/tier: newer
+                      exchangerate.host plans return `rate`, while legacy
+                      plans backed by currencylayer.com (identifiable by
+                      currencylayer.com terms/privacy URLs in the response)
+                      return `quote` instead. Both are modeled since either
+                      may be present.
                     properties:
-                      rate: { type: number, description: exchange rate applied }
+                      rate: { type: number, description: exchange rate applied (current exchangerate.host plans) }
+                      quote: { type: number, description: exchange rate applied (legacy currencylayer.com-backed plans) }
                   result: { type: number, description: converted amount }
         '400':
           description: Invalid currency code or parameters
