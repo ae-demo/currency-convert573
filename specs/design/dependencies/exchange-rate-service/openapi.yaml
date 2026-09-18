@@ -1,0 +1,60 @@
+openapi: 3.0.3
+info:
+  title: exchangerate.host API (derived subset)
+  version: "1.0"
+  description: >
+    Subset derived from exchangerate.host's published documentation
+    (https://exchangerate.host/documentation), covering only the currency
+    conversion operation this project calls. Authentication is an
+    access_key query parameter, per that documentation.
+servers:
+  - url: https://api.exchangerate.host
+paths:
+  /convert:
+    get:
+      operationId: convertCurrency
+      summary: Convert an amount from one currency to another using the current rate
+      x-aep-source: https://exchangerate.host/documentation
+      parameters:
+        - name: access_key
+          in: query
+          required: true
+          schema: { type: string }
+          description: API access key
+        - name: from
+          in: query
+          required: true
+          schema: { type: string }
+          description: source currency code
+        - name: to
+          in: query
+          required: true
+          schema: { type: string }
+          description: target currency code
+        - name: amount
+          in: query
+          required: true
+          schema: { type: number }
+          description: amount in the source currency
+      responses:
+        '200':
+          description: Conversion result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean }
+                  query:
+                    type: object
+                    properties:
+                      from: { type: string }
+                      to: { type: string }
+                      amount: { type: number }
+                  info:
+                    type: object
+                    properties:
+                      rate: { type: number, description: exchange rate applied }
+                  result: { type: number, description: converted amount }
+        '400':
+          description: Invalid currency code or parameters

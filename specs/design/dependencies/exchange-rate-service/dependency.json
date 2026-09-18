@@ -1,0 +1,13 @@
+{
+  "name": "exchange-rate-service",
+  "resource": {
+    "name": "exchange-rate-service",
+    "description": "Provides current currency exchange rates so amounts can be converted between currency pairs.",
+    "provider": "exchangerate.host",
+    "config": [
+      { "key": "EXCHANGERATE_HOST_ACCESS_KEY", "secret": true, "description": "Your exchangerate.host API access key, from your exchangerate.host account dashboard." }
+    ],
+    "contract": { "type": "openapi", "path": "openapi.yaml", "origin": "derived" }
+  },
+  "provenance": { "sourceUrl": "https://exchangerate.host/documentation" }
+}
