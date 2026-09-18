@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: Currency API
+  version: 0.1.0
+  description: Supported currencies and currency conversion.
+servers:
+  - url: /
+paths:
+  /currencies:
+    get:
+      operationId: listCurrencies
+      summary: The curated list of supported currencies
+      security:
+        - oauth2: []
+      responses:
+        '200':
+          description: Supported currencies
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [count, data]
+                properties:
+                  count: { type: integer, description: total matching items }
+                  next: { type: string, nullable: true, description: relative URI of the next page }
+                  previous: { type: string, nullable: true, description: relative URI of the previous page }
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Currency' }
+        '401':
+          description: Not signed in
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+  /conversions:
+    post:
+      operationId: convertCurrency
+      summary: Convert an amount from one supported currency to another
+      security:
+        - oauth2: [conversions:create]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ConversionRequest' }
+      responses:
+        '200':
+          description: The converted amount and rate used
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Conversion' }
+        '400':
+          description: Invalid currency pair or amount
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '401':
+          description: Not signed in
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: /oauth2/authorize
+          tokenUrl: /oauth2/token
+          scopes:
+            conversions:create: Convert an amount between two currencies
+  schemas:
+    Currency:
+      type: object
+      required: [code, name, symbol]
+      properties:
+        code: { type: string, description: ISO 4217 currency code }
+        name: { type: string, description: display name }
+        symbol: { type: string, description: currency symbol }
+    ConversionRequest:
+      type: object
+      required: [sourceCurrency, targetCurrency, amount]
+      properties:
+        sourceCurrency: { type: string, description: ISO 4217 code to convert from }
+        targetCurrency: { type: string, description: ISO 4217 code to convert to }
+        amount: { type: number, description: amount in the source currency }
+    Conversion:
+      type: object
+      required: [sourceCurrency, targetCurrency, amount, rate, convertedAmount, convertedAt]
+      properties:
+        sourceCurrency: { type: string, description: ISO 4217 code converted from }
+        targetCurrency: { type: string, description: ISO 4217 code converted to }
+        amount: { type: number, description: amount in the source currency }
+        rate: { type: number, description: exchange rate applied }
+        convertedAmount: { type: number, description: amount in the target currency }
+        convertedAt: { type: string, format: date-time, description: when the rate was fetched }
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code: { type: integer, description: HTTP or application error code }
+        message: { type: string, description: short human-readable label }
+        description: { type: string, description: detailed explanation }
+        moreInfo: { type: string, description: URI to documentation }
+security:
+  - oauth2: []
