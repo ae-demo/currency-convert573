@@ -29,8 +29,13 @@ function convertAmount(string sourceCurrency, string targetCurrency, decimal amo
         return error("exchange-rate-service reported an unsuccessful conversion");
     }
 
-    record {decimal rate?;}? info = result?.info;
-    decimal? rate = info is record {} ? info?.rate : ();
+    // The `info` object's rate field name depends on the upstream API
+    // plan/tier: current exchangerate.host plans return `rate`, while
+    // legacy plans backed by currencylayer.com (the `terms`/`privacy` URLs
+    // in the response identify these) return `quote` instead. Accept
+    // whichever is present rather than assuming a single shape.
+    record {decimal rate?; decimal quote?;}? info = result?.info;
+    decimal? rate = info is record {} ? (info?.rate ?: info?.quote) : ();
     decimal? convertedAmount = result?.result;
     if rate is () || convertedAmount is () {
         return error("exchange-rate-service returned an incomplete conversion result");

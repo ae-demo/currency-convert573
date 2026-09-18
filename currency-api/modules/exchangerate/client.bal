@@ -242,7 +242,8 @@ public type ConvertCurrencyQueries record {
 public type inline_response_200 record {
     boolean success?;
     record {string 'from?; string to?; decimal amount?;} query?;
-    record {decimal rate?;} info?;
+    # Field name observed to depend on API plan/tier: newer exchangerate.host plans return `rate`, while legacy plans backed by currencylayer.com (identifiable by currencylayer.com terms/privacy URLs in the response) return `quote` instead. Both are modeled since either may be present.
+    record {decimal rate?; decimal quote?;} info?;
     # converted amount
     decimal result?;
 };
