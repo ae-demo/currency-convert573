@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "issue": 6,
+  "commit": "d598003ff5e66bbfa514aaf846f95c47b4f88e93",
+  "generatedAt": "2026-09-18T06:32:19.423Z",
+  "playwrightVersion": "1.61.1",
+  "batches": [
+    {
+      "file": "2026-09-18T06-31-37-515Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-18T06-31-55-883Z.json",
+      "specs": 1
+    }
+  ],
+  "totals": {
+    "e2e": {
+      "total": 7,
+      "pass": 1,
+      "fail": 0,
+      "notRun": 6
+    },
+    "manual": 2,
+    "scenario": 0
+  },
+  "criteria": [
+    {
+      "id": "AC-001-a",
+      "requirementId": "REQ-001",
+      "must": "An unauthenticated visitor is directed to sign in before reaching the converter",
+      "method": "e2e",
+      "status": "pass",
+      "spec": "tests/e2e/specs/AC-001-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 12483,
+      "failure": null,
+      "batch": "2026-09-18T06-31-55-883Z.json"
+    },
+    {
+      "id": "AC-001-b",
+      "requirementId": "REQ-001",
+      "must": "A successfully signed-in User reaches the converter screen",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-002-a",
+      "requirementId": "REQ-002",
+      "must": "The converter presents a list of supported currencies to choose as the source",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-002-b",
+      "requirementId": "REQ-002",
+      "must": "The converter presents a list of supported currencies to choose as the target",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-003-a",
+      "requirementId": "REQ-003",
+      "must": "The User can enter a numeric amount in the source currency",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-003-b",
+      "requirementId": "REQ-003",
+      "must": "Submitting a valid amount displays the converted value in the target currency",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-003-c",
+      "requirementId": "REQ-003",
+      "must": "An invalid or non-numeric amount is rejected with a clear message",
+      "method": "manual",
+      "status": "manual",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-004-a",
+      "requirementId": "REQ-004",
+      "must": "The conversion result displays the exchange rate applied",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-005-a",
+      "requirementId": "REQ-005",
+      "must": "The currency picker's options are limited to a curated shortlist of major currencies",
+      "method": "manual",
+      "status": "manual",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    }
+  ]
+}

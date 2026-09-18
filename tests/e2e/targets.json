@@ -1,0 +1,7 @@
+{
+  "targets": {
+    "currency-api": "https://development-default.apps.94.72.97.95.sslip.io:443/currency-convert573-currency-api-http",
+    "currency-webapp": "https://http-currency-conv-development-default-9451183b.apps.94.72.97.95.sslip.io:443/"
+  },
+  "primary": "currency-webapp"
+}
