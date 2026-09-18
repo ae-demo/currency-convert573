@@ -1,0 +1,17 @@
+{
+  "name": "currency-webapp",
+  "type": "web-application",
+  "version": "0.1.0",
+  "language": "TypeScript",
+  "buildpack": "docker",
+  "appPath": "currency-webapp",
+  "entrypoint": "deployment/web-application",
+  "exposure": "internet",
+  "dependencies": [
+    { "kind": "component", "name": "currency-api", "description": "Fetches the supported currency list and requests conversions." },
+    { "kind": "platform-resource", "name": "user-auth", "resourceType": "thunder-app", "parameters": {}, "description": "Signs the user in via SSO before the converter is used." }
+  ],
+  "description": "Single-page React app where a signed-in User picks a source and target currency, enters an amount, and sees the converted result and rate. Talks only to currency-api; holds no exchange-rate credentials itself.",
+  "stories": [1, 2, 3, 4],
+  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system", "thunder-authentication"]
+}

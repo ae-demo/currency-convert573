@@ -1,0 +1,48 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "A User signs in with single sign-on to access the converter",
+      "stories": [1],
+      "criteria": [
+        { "id": "AC-001-a", "must": "An unauthenticated visitor is directed to sign in before reaching the converter", "method": "e2e" },
+        { "id": "AC-001-b", "must": "A successfully signed-in User reaches the converter screen", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-002",
+      "statement": "A User chooses a source currency and a target currency from a list of supported currencies",
+      "stories": [2],
+      "criteria": [
+        { "id": "AC-002-a", "must": "The converter presents a list of supported currencies to choose as the source", "method": "e2e" },
+        { "id": "AC-002-b", "must": "The converter presents a list of supported currencies to choose as the target", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-003",
+      "statement": "A User enters an amount in the source currency and sees its equivalent value in the target currency",
+      "stories": [3],
+      "criteria": [
+        { "id": "AC-003-a", "must": "The User can enter a numeric amount in the source currency", "method": "e2e" },
+        { "id": "AC-003-b", "must": "Submitting a valid amount displays the converted value in the target currency", "method": "e2e" },
+        { "id": "AC-003-c", "must": "An invalid or non-numeric amount is rejected with a clear message", "method": "manual" }
+      ]
+    },
+    {
+      "id": "REQ-004",
+      "statement": "A User sees the current exchange rate used for the conversion",
+      "stories": [4],
+      "criteria": [
+        { "id": "AC-004-a", "must": "The conversion result displays the exchange rate applied", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-005",
+      "statement": "The product offers a curated shortlist of major currencies rather than every currency a provider publishes",
+      "stories": [2],
+      "criteria": [
+        { "id": "AC-005-a", "must": "The currency picker's options are limited to a curated shortlist of major currencies", "method": "manual" }
+      ]
+    }
+  ]
+}

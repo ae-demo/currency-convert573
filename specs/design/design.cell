@@ -1,0 +1,14 @@
+title Currency Converter
+
+component currency-webapp as "Currency Converter" web-application
+component currency-api as "Currency API" service
+
+east user-auth as "Thunder Auth" identity-server
+south exchange-rate-service as "Exchange Rate Service" service
+
+north -> currency-webapp
+
+currency-webapp -> currency-api
+currency-webapp -> user-auth
+currency-api -> user-auth
+currency-api -> exchange-rate-service

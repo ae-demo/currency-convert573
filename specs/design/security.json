@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "permissions": [
+    {
+      "resource": "conversions",
+      "component": "currency-api",
+      "description": "Currency conversion requests",
+      "actions": [
+        { "handle": "create", "description": "Convert an amount between two supported currencies" }
+      ]
+    }
+  ],
+  "groups": [
+    { "name": "Users", "description": "Everyone who signs in to convert currencies" }
+  ],
+  "roles": [
+    {
+      "name": "User",
+      "description": "Signs in and converts amounts between supported currencies.",
+      "stories": [1, 2, 3, 4],
+      "grants": ["conversions:create"],
+      "assignTo": ["Users"]
+    }
+  ],
+  "testUsers": [
+    { "username": "test-user", "roles": ["User"] }
+  ]
+}

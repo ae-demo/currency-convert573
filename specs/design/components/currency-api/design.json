@@ -1,0 +1,17 @@
+{
+  "name": "currency-api",
+  "type": "service",
+  "version": "0.1.0",
+  "language": "Ballerina",
+  "buildpack": "docker",
+  "appPath": "currency-api",
+  "entrypoint": "deployment/service",
+  "exposure": "intranet",
+  "dependencies": [
+    { "kind": "platform-resource", "name": "user-auth", "resourceType": "thunder-app", "parameters": {}, "description": "Verifies the gateway's signed assertion for every request from currency-webapp." },
+    { "kind": "external", "name": "exchange-rate-service", "description": "Fetches the current exchange rate for the requested currency pair when converting an amount." }
+  ],
+  "description": "Ballerina service exposing the supported currency list and a conversion operation. Calls exchange-rate-service for the current rate on each conversion; does not persist conversions or rate history.",
+  "stories": [1, 2, 3, 4],
+  "skillsPinned": ["openapi-conventions", "ballerina", "thunder-authentication", "api-management"]
+}
