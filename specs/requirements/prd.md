@@ -24,14 +24,14 @@ capabilities.
 ## User Stories
 
 1. As a User, I want to sign in with single sign-on, so that I can securely
- access the converter.
+access the converter.
 2. As a User, I want to choose a source currency and a target currency from a
- list of supported currencies, so that I can specify which conversion I
- need.
+list of supported currencies, so that I can specify which conversion I
+need.
 3. As a User, I want to enter an amount in the source currency, so that I can
- see its equivalent value in the target currency.
+see its equivalent value in the target currency.
 4. As a User, I want to see the current exchange rate used for the
- conversion, so that I can trust the result.
+conversion, so that I can trust the result.
 
 ## Product Decisions
 
@@ -43,10 +43,10 @@ business today, so the capability is named here only; the concrete
 provider is chosen at design time.
 - **Notifications**: none. The product does not send emails, push
 notifications, or alerts of any kind.
-- **Supported currencies**: the app offers the full standard set of ISO 4217
-currency codes that the chosen exchange-rate provider makes available
-(e.g., USD, EUR, GBP, JPY, and the rest of the major and minor currencies
-it publishes rates for), rather than a hand-picked shortlist. *assumed*
+- **Supported currencies**: the app offers a curated shortlist of major
+currencies (e.g., USD, EUR, GBP, JPY, and other widely-traded currencies)
+rather than the full set an exchange-rate provider publishes, to keep the
+currency picker simple. The exact shortlist is finalized at design time.
 
 ## Out of Scope
 
