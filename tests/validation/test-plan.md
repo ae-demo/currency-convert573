@@ -1,5 +1,19 @@
 # Validation test plan — issue #6
 
+## Re-validation (2026-09-19)
+
+Re-ran against current `main` (post `currency-api` exchange-rate fix, PR #8).
+Re-checked the roles gate (issue #2, closed): still shows `test-user` refused
+and no `<!-- aep:test-users -->` login table — `specs/design/security.json`
+still declares only that one username. The blocking note below still applies
+unchanged; scope of authored vs. not_run criteria is the same as the prior
+cycle.
+
+Healed AC-001-a (see `tests/e2e/heal-log.json`): live-timed the SSO redirect
+at ~14s (session check + a failed silent-renew attempt before the client
+falls back to a full redirect); the previous 15s assertion timeout left no
+margin and failed once under load. Raised to 30s — no assertion changed.
+
 ## Blocking note: no usable test user
 
 The milestone's roles gate ticket (issue #2) shows the single declared test
