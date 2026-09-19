@@ -1,16 +1,36 @@
 {
   "schemaVersion": 1,
   "issue": 6,
-  "commit": "d598003ff5e66bbfa514aaf846f95c47b4f88e93",
-  "generatedAt": "2026-09-18T06:32:19.423Z",
+  "commit": "c87b2c815d26df7465114f410a6770df1a13742f",
+  "generatedAt": "2026-09-19T06:39:19.391Z",
   "playwrightVersion": "1.61.1",
   "batches": [
     {
-      "file": "2026-09-18T06-31-37-515Z.json",
+      "file": "2026-09-19T06-35-17-505Z.json",
       "specs": 1
     },
     {
-      "file": "2026-09-18T06-31-55-883Z.json",
+      "file": "2026-09-19T06-37-02-665Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-19T06-37-18-225Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-19T06-37-33-877Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-19T06-38-10-764Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-19T06-38-27-621Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-19T06-39-01-245Z.json",
       "specs": 1
     }
   ],
@@ -32,12 +52,12 @@
       "method": "e2e",
       "status": "pass",
       "spec": "tests/e2e/specs/AC-001-a.spec.ts",
-      "healed": false,
-      "healAttempts": 0,
+      "healed": true,
+      "healAttempts": 1,
       "flaky": false,
-      "durationMs": 12483,
+      "durationMs": 12996,
       "failure": null,
-      "batch": "2026-09-18T06-31-55-883Z.json"
+      "batch": "2026-09-19T06-39-01-245Z.json"
     },
     {
       "id": "AC-001-b",

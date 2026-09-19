@@ -1,8 +1,8 @@
 # Validation report
 
 - **Issue:** #6
-- **Commit:** d598003ff5e66bbfa514aaf846f95c47b4f88e93
-- **Generated:** 2026-09-18T06:32:19.423Z
+- **Commit:** c87b2c815d26df7465114f410a6770df1a13742f
+- **Generated:** 2026-09-19T06:39:19.391Z
 - **Playwright:** 1.61.1
 
 ## Summary
@@ -17,7 +17,7 @@
 
 | Criterion | Must | Status | Spec | Notes |
 |---|---|---|---|---|
-| AC-001-a | An unauthenticated visitor is directed to sign in before reaching the converter | ✅ pass | `tests/e2e/specs/AC-001-a.spec.ts` | — |
+| AC-001-a | An unauthenticated visitor is directed to sign in before reaching the converter | ✅ pass | `tests/e2e/specs/AC-001-a.spec.ts` | healed ×1 |
 | AC-001-b | A successfully signed-in User reaches the converter screen | ⏭️ not_run | — | — |
 | AC-002-a | The converter presents a list of supported currencies to choose as the source | ⏭️ not_run | — | — |
 | AC-002-b | The converter presents a list of supported currencies to choose as the target | ⏭️ not_run | — | — |
@@ -29,4 +29,10 @@
 
 - [ ] **AC-003-c** — An invalid or non-numeric amount is rejected with a clear message
 - [ ] **AC-005-a** — The currency picker's options are limited to a curated shortlist of major currencies
+
+## Healing log
+
+| Criterion | Classification | Change | Commit |
+|---|---|---|---|
+| AC-001-a | timing | toHaveURL(/default-idp/, { timeout: 15_000 }) -> { timeout: 30_000 }; the live SSO redirect (session check + failed silent-renew fallback) regularly takes ~14s, leaving no margin under the old 15s timeout | `pending` |
 
