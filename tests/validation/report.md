@@ -1,8 +1,8 @@
 # Validation report
 
 - **Issue:** #6
-- **Commit:** c87b2c815d26df7465114f410a6770df1a13742f
-- **Generated:** 2026-09-19T06:39:19.391Z
+- **Commit:** ca27e9f49f69e6fb75a56cad5f9ab62a1d6064c4
+- **Generated:** 2026-09-19T06:39:38.407Z
 - **Playwright:** 1.61.1
 
 ## Summary
@@ -34,5 +34,5 @@
 
 | Criterion | Classification | Change | Commit |
 |---|---|---|---|
-| AC-001-a | timing | toHaveURL(/default-idp/, { timeout: 15_000 }) -> { timeout: 30_000 }; the live SSO redirect (session check + failed silent-renew fallback) regularly takes ~14s, leaving no margin under the old 15s timeout | `pending` |
+| AC-001-a | timing | toHaveURL(/default-idp/, { timeout: 15_000 }) -> { timeout: 30_000 }; the live SSO redirect (session check + failed silent-renew fallback) regularly takes ~14s, leaving no margin under the old 15s timeout | `ca27e9f4` |
 
